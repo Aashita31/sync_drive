@@ -7,6 +7,19 @@ Work Flow
 Structure:
 Root->Parent folder->Workspace folder->Task folder->Task folder files.
 
+
+	$upload_array = ['Workplace' => [
+					'Test1' => [
+							'0' => "tasklistfiles/2530/tasklist_216190942753.png",
+							'1' => "tasklistfiles/2530/tasklist_516190942791.txt"
+						],
+					'Test2' => [
+						'0' => "tasklistfiles/2550/tasklist_216190882045.txt"
+					]
+				]
+			];
+      
+
 steps:
 
 1- Login into drive(If new user), save the access-token json in DB. 
