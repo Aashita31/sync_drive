@@ -1,3 +1,63 @@
+
+<h2><strong>Laravel drive sync- multi-structure folder.</strong></h2>
+
+Work Flow:- *Structure: <h2><strong>Root->Parent folder->Workspace folder->Task folder->Task folder files.</h2></strong>
+
+$upload_array = ['default-Workplace' => [
+'Test1' => [
+'0' => "tasklistfiles/2530/tasklist_216190942753.png",
+'1' => "tasklistfiles/2530/tasklist_516190942791.txt"
+],
+'Test2' => [
+'0' => "tasklistfiles/2550/tasklist_216190882045.txt"
+]
+],
+'Workplace' => [
+'Test3' => [
+'0' => "tasklistfiles/2533/tasklist_216190942753.png",
+'1' => "tasklistfiles/2533/tasklist_516190942791.txt"
+],
+'Test4' => [
+'0' => "tasklistfiles/2555/tasklist_216190882045.txt"
+]
+]
+];
+
+
+<h2><strong>steps:</strong></h2><p>
+1- Login into drive(If new user), save the access-token json in DB. <br/>
+2- Check if access-token active, if not active refresh access token and update json in DB.<br/>
+3- Check if Parent folder exsist, if YES - step4, if NO - step5<br/>
+4- Get Parent folder Id Name, go to-step6<br/>
+5- Create Parent folder, get folder Id Name, go to-step6<br/>
+6- Get folder List, Check if Workspace folder exsist, if YES - step7, if NO - step8<br/>
+7- Get Workspace folder id Name, go to-step9<br/>
+8- Create Workspace folder, get folder Id Name, go to-step9<br/>
+9- Get folder List,Check if Task folder exsist, if YES - step10, if NO - step11<br/>
+10- Get Task folder id Name, go to-step12<br/>
+11- Create Task folder, get folder Id Name, go to-step12<br/>
+12- Get File List, Check if Task file exsist, if YES - step13, if NO- (msg-uploaded previously)<br/>
+13- Upload file in specific folder<br/>
+ * If while checking folder/file exsist or not, if function return empty array then create
+  and make specific upload will be the starting phase. </p>
+  
+  <br/>
+  "require":<br/>
+    "google/apiclient": "2.0.*"<br/>
+
+<b> .env</b>
+GOOGLE_APP_ID=xxxxx <br/>
+GOOGLE_CLIENT_ID=xxxxx <br/>
+GOOGLE_CLIENT_SECRET=xxxxxxx <br/>
+GOOGLE_REDIRECT='http://localhost:8000/glogin' <br/>
+
+<br/>
+<h2><strong>Getting your Client ID and Secret</h2></strong>
+[https://console.developers.google.com/]
+  
+
+Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
@@ -19,7 +79,6 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - [Robust background job processing](https://laravel.com/docs/queues).
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
 
 ## Learning Laravel
 
